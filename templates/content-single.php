@@ -7,6 +7,7 @@
     <div class="entry-content">
       <?php the_content(); ?>
     </div>
+    <?php display_amazon_product('content'); ?>
     <footer>
       <?php wp_link_pages(array('before' => '<nav class="page-nav"><p>' . __('Pages:', 'roots'), 'after' => '</p></nav>')); ?>
     </footer>

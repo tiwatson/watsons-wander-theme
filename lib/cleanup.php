@@ -155,10 +155,18 @@ function roots_caption($output, $attr, $content) {
     return $content;
   }
 
+  // WatsonsWander edit for older side by side responsive images
+  if ($attr['width'] == 300 && $attr['align'] == 'alignleft') {
+    $attr['align'] = 'aligncenter col-sm-6';
+  }
+  if ($attr['width'] == 300 && $attr['align'] == 'alignright') {
+    $attr['align'] = 'alignright col-sm-6';
+  }
+
   // Set up the attributes for the caption <figure>
   $attributes  = (!empty($attr['id']) ? ' id="' . esc_attr($attr['id']) . '"' : '' );
-  $attributes .= ' class="thumbnail wp-caption ' . esc_attr($attr['align']) . '"';
-  $attributes .= ' style="width: ' . (esc_attr($attr['width']) + 10) . 'px"';
+  $attributes .= ' class="wp-caption ' . esc_attr($attr['align']) . '"';
+  //$attributes .= ' style="width: ' . (esc_attr($attr['width']) + 10) . 'px"';
 
   $output  = '<figure' . $attributes .'>';
   $output .= do_shortcode($content);
